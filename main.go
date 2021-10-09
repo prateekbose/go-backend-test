@@ -10,7 +10,9 @@ import (
 	"strings"
 	"time"
 
+	"crypto/sha1"
 	"encoding/hex"
+
 	"encoding/json"
 
 	"go.mongodb.org/mongo-driver/bson"
