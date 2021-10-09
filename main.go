@@ -101,7 +101,7 @@ func CreateUserAndPost(w http.ResponseWriter, r *http.Request) {
 		collection := client.Database("task").Collection("users")
 
 		if err = collection.FindOne(ctx,
-			bson.M{"id": temp.UserId},
+			bson.M{"userid": temp.UserId},
 			options.FindOne().SetProjection(bson.M{"_id": 0}),
 		).Decode(&temp); err != nil {
 			fmt.Println(err)
