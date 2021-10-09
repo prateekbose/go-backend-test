@@ -21,3 +21,12 @@ Returns post content using the API by going to ‘/posts/{id}’. Supports only 
 
 ### List all posts of a user
 Returns array containing all posts of a user using the API by going to ‘/posts/users/{id}’. Supports only GET requests. Throws an error if the user with given ID does not exists.
+
+### Unit Tests
+Added Unit Tests
+ - AddUserSuccess
+ - AddPostSuccess
+ - AddPostUnauthorized
+ - GetUser
+ - GetPost
+ - GetUserPosts
