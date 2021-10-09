@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"crypto/sha1"
 	"errors"
 	"fmt"
 	"log"
@@ -9,6 +10,7 @@ import (
 	"strings"
 	"time"
 
+	"encoding/hex"
 	"encoding/json"
 
 	"go.mongodb.org/mongo-driver/bson"
@@ -62,11 +64,16 @@ func CreateUserAndPost(w http.ResponseWriter, r *http.Request) {
 
 		collection := client.Database("task").Collection("users")
 
+		tempPass := r.FormValue("Password")
+		hasher := sha1.New()
+		hasher.Write([]byte(tempPass))
+		sha1_hash := hex.EncodeToString(hasher.Sum(nil))
+
 		temp := users{}
 		temp.Id = r.FormValue("Id")
 		temp.Name = r.FormValue("Name")
 		temp.Email = r.FormValue("Email")
-		temp.Password = r.FormValue("Password")
+		temp.Password = sha1_hash
 		fmt.Println("POST: user")
 		fmt.Println(temp)
 
