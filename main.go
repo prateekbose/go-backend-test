@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"crypto/sha1"
 	"errors"
 	"fmt"
 	"log"
