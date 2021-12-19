@@ -1,4 +1,4 @@
-# Appointy Technical Task
+# Go example API
 This repo marks for the Appointy Technical Task using Golang
 
 - [X] Create an User
